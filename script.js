@@ -61,15 +61,21 @@ startBtn.onclick = function () {
     gallery.style.display = "block";
     video.style.display = "block";
     ending.style.display = "block";
+
+    
 startFireworks();
+
+setTimeout(() => {
+
+    intro.scrollIntoView({
+        behavior: "smooth"
+    });
+
     document.getElementById("loveLetter").innerHTML = "";
     i = 0;
     typeWriter();
 
-    intro.scrollIntoView({
-        behavior: "smooth"
-        ;
-    });
+}, 2500);
 
 };
 
