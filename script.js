@@ -85,26 +85,25 @@ function updateCountdown() {
 
 updateCountdown();
 
-function createHeart(){
+function createHeart() {
 
-    const heart=document.createElement("div");
+    const heart = document.createElement("div");
 
-    heart.className="heart";
+    heart.className = "heart";
 
-    heart.innerHTML="❤️";
+    heart.innerHTML = "❤️";
 
-    heart.style.left=Math.random()*100+"vw";
+    heart.style.left = Math.random() * window.innerWidth + "px";
 
-    heart.style.animationDuration=(5+Math.random()*5)+"s";
+    heart.style.top = window.innerHeight + "px";
 
-    heart.style.fontSize=(18+Math.random()*22)+"px";
+    heart.style.fontSize = (18 + Math.random() * 22) + "px";
 
     document.body.appendChild(heart);
 
-    setTimeout(()=>{
+    setTimeout(() => {
         heart.remove();
-    },10000);
-
+    }, 10000);
 }
 
-setInterval(createHeart,500);
+setInterval(createHeart, 350);
