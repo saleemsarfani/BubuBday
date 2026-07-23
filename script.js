@@ -143,3 +143,23 @@ document.getElementById("startBtn").addEventListener("click", () => {
     });
 
 });
+
+const photos=[
+"1.jpg.jpeg",
+"2.jpg.jpeg",
+"3.jpg.jpeg",
+"4.jpg.jpeg",
+"5.jpg.jpeg",
+"6.jpg.png",
+"7.jpg.jpeg"
+];
+
+let current=0;
+
+setInterval(()=>{
+
+current=(current+1)%photos.length;
+
+document.getElementById("slide").src=photos[current];
+
+},5000);
