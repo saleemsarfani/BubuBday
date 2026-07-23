@@ -84,3 +84,27 @@ function updateCountdown() {
 }
 
 updateCountdown();
+
+function createHeart(){
+
+    const heart=document.createElement("div");
+
+    heart.className="heart";
+
+    heart.innerHTML="❤️";
+
+    heart.style.left=Math.random()*100+"vw";
+
+    heart.style.animationDuration=(5+Math.random()*5)+"s";
+
+    heart.style.fontSize=(18+Math.random()*22)+"px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },10000);
+
+}
+
+setInterval(createHeart,500);
