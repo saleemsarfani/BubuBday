@@ -22,6 +22,10 @@ if (startBtn) {
             behavior: "smooth"
         });
 
+      document.getElementById("loveLetter").innerHTML = "";
+i = 0;
+typeWriter();
+
     });
 }
 // ===== Reveal Animation =====
@@ -68,7 +72,6 @@ function typeWriter() {
     }
 }
 
-typeWriter();
 
 
 
