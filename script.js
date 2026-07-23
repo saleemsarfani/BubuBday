@@ -10,7 +10,7 @@ window.addEventListener("load", () => {
 });
 
 // ===== Smooth Scroll =====
-
+const startBtn = document.getElementById("startBtn");
 startBtn.addEventListener("click", () => {
 
     document.getElementById("bgMusic").play().catch(() => {});
