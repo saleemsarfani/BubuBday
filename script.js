@@ -1,3 +1,5 @@
+
+alert("SCRIPT VERSION 2026-07-24");
 // ===== LOADER =====
 window.addEventListener("load", () => {
     setTimeout(() => {
