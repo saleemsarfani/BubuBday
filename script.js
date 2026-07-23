@@ -132,11 +132,14 @@ lightbox.style.display="none";
 
 }
 
-
-
 document.getElementById("startBtn").addEventListener("click", () => {
-  document.getElementById("bgMusic").play();
+
+    const music = document.getElementById("bgMusic");
+
+    music.play().catch(err => console.log(err));
+
     document.querySelector(".intro").scrollIntoView({
         behavior: "smooth"
     });
+
 });
