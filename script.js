@@ -172,7 +172,7 @@ function startFireworks() {
 
         const color = colors[Math.floor(Math.random() * colors.length)];
 
-        for (let i = 0; i < 300; i++) {
+        for (let i = 0; i < 80; i++) {
 
             const angle = Math.random() * Math.PI * 2;
             const speed = Math.random() * 8 + 3;
@@ -187,7 +187,7 @@ function startFireworks() {
 
                 size: Math.random() * 2 + 1,
 
-                life: 120,
+                life: 40,
 
                 color
 
@@ -244,7 +244,7 @@ ctx.globalCompositeOperation = "lighter";
 
         count++;
 
-        if(count>=40){
+        if(count>=10){
             clearInterval(interval);
             running=false;
         }
