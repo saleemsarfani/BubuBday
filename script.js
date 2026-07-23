@@ -107,3 +107,27 @@ function createHeart() {
 }
 
 setInterval(createHeart, 350);
+
+const images=document.querySelectorAll(".gallery-grid img");
+
+const lightbox=document.getElementById("lightbox");
+
+const lightboxImg=document.getElementById("lightbox-img");
+
+images.forEach(img=>{
+
+img.onclick=()=>{
+
+lightbox.style.display="flex";
+
+lightboxImg.src=img.src;
+
+}
+
+});
+
+function closeImage(){
+
+lightbox.style.display="none";
+
+}
