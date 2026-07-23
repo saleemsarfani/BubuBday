@@ -11,18 +11,17 @@ window.addEventListener("load", () => {
 
 // ===== Smooth Scroll =====
 
-document.getElementById("startBtn").addEventListener("click", () => {
+const startBtn = document.getElementById("startBtn");
 
-    const music = document.getElementById("bgMusic");
+startBtn.addEventListener("click", () => {
 
-    music.play().catch(err => console.log(err));
+    document.getElementById("bgMusic").play();
 
     document.querySelector(".intro").scrollIntoView({
         behavior: "smooth"
     });
 
 });
-
 
 // ===== Reveal Animation =====
 const observer = new IntersectionObserver(entries => {
