@@ -55,13 +55,13 @@ function typeWriter() {
 startBtn.onclick = function () {
 
     music.play().catch(()=>{});
-    startFireworks();
+    
     slideshow.style.display = "flex";
     intro.style.display = "block";
     gallery.style.display = "block";
     video.style.display = "block";
     ending.style.display = "block";
-
+startFireworks();
     document.getElementById("loveLetter").innerHTML = "";
     i = 0;
     typeWriter();
