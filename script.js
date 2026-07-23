@@ -149,6 +149,9 @@ lightbox.style.display="none";
 
 function startFireworks() {
 
+    console.log("Fireworks version 2");
+alert("Fireworks version 2");
+
     const canvas = document.getElementById("fireworks");
     const ctx = canvas.getContext("2d");
 
