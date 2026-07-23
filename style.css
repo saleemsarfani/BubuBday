@@ -6,10 +6,13 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#050510;
-color:white;
-overflow-x:hidden;
-scroll-behavior:smooth;
+    margin:0;
+    padding:0;
+    font-family:'Poppins',sans-serif;
+    color:white;
+    background:linear-gradient(135deg,#090014,#140028,#25003d);
+    background-attachment:fixed;
+    overflow-x:hidden;
 }
 
 .hero{
@@ -18,14 +21,12 @@ display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
-background:linear-gradient(135deg,#12001f,#050510);
-position:relative;
-overflow:hidden;
+padding:20px;
 }
 
 .hero-content{
-z-index:2;
-padding:20px;
+max-width:700px;
+width:90%;
 }
 
 .hero h1{
