@@ -135,6 +135,7 @@ lightbox.style.display="none";
 
 
 document.getElementById("startBtn").addEventListener("click", () => {
+  document.getElementById("bgMusic").play();
     document.querySelector(".intro").scrollIntoView({
         behavior: "smooth"
     });
