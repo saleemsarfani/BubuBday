@@ -1,52 +1,28 @@
-// ===== Loading Screen =====
+// Loading
 window.addEventListener("load", () => {
-  setTimeout(() => {
-    const loader = document.getElementById("loader");
-    if (loader) {
-      loader.style.opacity = "0";
-      setTimeout(() => loader.style.display = "none", 1000);
-    }
-  }, 2500);
+    setTimeout(() => {
+        document.getElementById("loader").style.display = "none";
+    }, 2000);
 });
 
-// ===== Smooth Scroll =====
+// Elements
 const startBtn = document.getElementById("startBtn");
-startBtn.addEventListener("click", () => {
+const intro = document.querySelector(".intro");
+const slideshow = document.querySelector(".slideshow");
+const gallery = document.querySelector(".gallery");
+const video = document.querySelector(".video-section");
+const ending = document.getElementById("ending");
+const music = document.getElementById("bgMusic");
 
-    document.getElementById("bgMusic").play().catch(() => {});
+// Hide everything initially
+intro.style.display = "none";
+slideshow.style.display = "none";
+gallery.style.display = "none";
+video.style.display = "none";
+ending.style.display = "none";
 
-    document.querySelector(".slideshow").style.display = "flex";
-    document.querySelector(".intro").style.display = "block";
-    document.querySelector(".video-section").style.display = "block";
-
-    const ending = document.getElementById("ending");
-    if (ending) ending.style.display = "flex";
-
-    document.querySelector(".slideshow").scrollIntoView({
-        behavior: "smooth"
-    });
-
-    document.getElementById("loveLetter").innerHTML = "";
-    i = 0;
-    typeWriter();
-});
-
-// ===== Reveal Animation =====
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("active");
-    }
-  });
-});
-
-document.querySelectorAll(".reveal").forEach(el => {
-  observer.observe(el);
-});
-
-// ===== Typewriter Letter =====
-const message =
-`Happy Birthday, My Beautiful Bubu ❤️
+// Letter
+const message = `Happy Birthday, My Beautiful Bubu ❤️
 
 Every day with you feels special.
 
@@ -70,74 +46,54 @@ function typeWriter() {
     if (i < message.length) {
         document.getElementById("loveLetter").innerHTML +=
             message.charAt(i) === "\n" ? "<br>" : message.charAt(i);
+
         i++;
-  setTimeout(typeWriter, 45);
+        setTimeout(typeWriter, 40);
     }
 }
 
-const countdown = document.getElementById("countdown");
+startBtn.onclick = function () {
 
-function updateCountdown() {
-    countdown.innerHTML = "Today is your special day ❤️";
-}
+    music.play().catch(()=>{});
 
-updateCountdown();
+    slideshow.style.display = "flex";
+    intro.style.display = "block";
+    gallery.style.display = "block";
+    video.style.display = "block";
+    ending.style.display = "block";
 
-function createHeart() {
+    document.getElementById("loveLetter").innerHTML = "";
+    i = 0;
+    typeWriter();
 
-    const heart = document.createElement("div");
+    intro.scrollIntoView({
+        behavior: "smooth"
+    });
+};
 
-    heart.className = "heart";
-
-    heart.innerHTML = "❤️";
-
-    heart.style.left = Math.random() * window.innerWidth + "px";
-
-    heart.style.top = window.innerHeight + "px";
-
-    heart.style.fontSize = (18 + Math.random() * 22) + "px";
-
+// Hearts
+function createHeart(){
+    const heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*window.innerWidth+"px";
+    heart.style.top=window.innerHeight+"px";
+    heart.style.fontSize=(18+Math.random()*20)+"px";
     document.body.appendChild(heart);
 
-    setTimeout(() => {
-        heart.remove();
-    }, 10000);
+    setTimeout(()=>heart.remove(),8000);
 }
 
-setInterval(createHeart, 350);
+setInterval(createHeart,350);
 
-const images=document.querySelectorAll(".gallery-grid img");
-
-const lightbox=document.getElementById("lightbox");
-
-const lightboxImg=document.getElementById("lightbox-img");
-
-images.forEach(img=>{
-
-img.onclick=()=>{
-
-lightbox.style.display="flex";
-
-lightboxImg.src=img.src;
-
-}
-
-});
-
-function closeImage(){
-
-lightbox.style.display="none";
-
-}
-
-
+// Slideshow
 const photos=[
 "1.jpg.jpeg",
 "2.jpg.jpeg",
 "3.jpg.jpeg",
 "4.jpg.jpeg",
 "5.jpg.jpeg",
-"6.jpg.jpeg",
+"6.jpg.png",
 "7.jpg.jpeg"
 ];
 
@@ -145,17 +101,21 @@ let current=0;
 const slide=document.getElementById("slide");
 
 setInterval(()=>{
+    current=(current+1)%photos.length;
+    slide.src=photos[current];
+},4000);
 
-    slide.classList.add("fade");
+// Lightbox
+const lightbox=document.getElementById("lightbox");
+const lightboxImg=document.getElementById("lightbox-img");
 
-    setTimeout(()=>{
+document.querySelectorAll(".gallery-grid img").forEach(img=>{
+    img.onclick=()=>{
+        lightbox.style.display="flex";
+        lightboxImg.src=img.src;
+    };
+});
 
-        current=(current+1)%photos.length;
-
-        slide.src=photos[current];
-
-        slide.classList.remove("fade");
-
-    },1000);
-
-},5000);
+function closeImage(){
+    lightbox.style.display="none";
+}
