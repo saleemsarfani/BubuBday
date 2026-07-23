@@ -150,11 +150,16 @@ lightbox.style.display="none";
 function startFireworks() {
 
     const canvas = document.getElementById("fireworks");
-    const ctx = canvas.getContext("2d");
+    if (!canvas) {
+        alert("Canvas not found");
+        return;
+    }
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
+    const ctx = canvas.getContext("2d");
+
     ctx.fillStyle = "red";
-    ctx.fillRect(100, 100, 200, 200);
+    ctx.fillRect(0, 0, 300, 300);
 }
