@@ -201,8 +201,7 @@ function startFireworks() {
 
     function animate() {
 
-        ctx.fillStyle = "rgba(0,0,0,0.12)";
-        ctx.fillRect(0,0,canvas.width,canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         particles.forEach(p=>{
 
