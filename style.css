@@ -124,12 +124,10 @@ p{
 
     .heart{
     position:fixed;
-    color:#ff4d88;
-    font-size:22px;
-    animation:floatUp 8s linear infinite;
-    z-index:999;
+    z-index:9999;
     pointer-events:none;
-}
+    animation:floatUp 8s linear forwards;
+    }
 
 @keyframes floatUp{
     0%{
