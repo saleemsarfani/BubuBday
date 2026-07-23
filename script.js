@@ -71,14 +71,10 @@ function typeWriter() {
         document.getElementById("loveLetter").innerHTML +=
             message.charAt(i) === "\n" ? "<br>" : message.charAt(i);
         i++;
-        setTimeout(typeWriter, 45);
+  
     }
 }
 
-
-
-
-setTimeout(typeWriter, 3500);
 const countdown = document.getElementById("countdown");
 
 function updateCountdown() {
