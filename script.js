@@ -130,79 +130,50 @@ function closeImage(){
 
 function startFireworks() {
 
-const canvas = document.getElementById("fireworks");
-const ctx = canvas.getContext("2d");
+    const canvas = document.getElementById("fireworks");
+    if (!canvas) return;
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+    const ctx = canvas.getContext("2d");
 
-let particles = [];
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-function burst(x, y) {
+    let particles = [];
 
-    for (let i = 0; i < 120; i++) {
-
+    for (let i = 0; i < 150; i++) {
         particles.push({
-
-            x: x,
-            y: y,
-
+            x: canvas.width / 2,
+            y: canvas.height / 2,
             dx: (Math.random() - 0.5) * 12,
             dy: (Math.random() - 0.5) * 12,
-
-            radius: Math.random() * 3 + 2,
-
             life: 100,
+            color: `hsl(${Math.random() * 360},100%,60%)`
+        });
+    }
 
-            color: `hsl(${Math.random()*360},100%,60%)`
+    function animate() {
 
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        particles.forEach((p) => {
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
+            ctx.fillStyle = p.color;
+            ctx.fill();
+
+            p.x += p.dx;
+            p.y += p.dy;
+            p.dy += 0.03;
+            p.life--;
         });
 
-    }
+        particles = particles.filter(p => p.life > 0);
 
-}
-
-function animate() {
-
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-
-    particles.forEach((p,index)=>{
-
-        ctx.beginPath();
-
-        ctx.arc(p.x,p.y,p.radius,0,Math.PI*2);
-
-        ctx.fillStyle=p.color;
-
-        ctx.fill();
-
-        p.x+=p.dx;
-        p.y+=p.dy;
-
-        p.dy+=0.03;
-
-        p.life--;
-
-        if(p.life<=0){
-            particles.splice(index,1);
+        if (particles.length > 0) {
+            requestAnimationFrame(animate);
         }
-
-    });
-
-    if(particles.length>0){
-        requestAnimationFrame(animate);
     }
 
-}
-
-burst(canvas.width/2,canvas.height/2);
-
-setTimeout(()=>burst(canvas.width*0.25,canvas.height*0.35),500);
-
-setTimeout(()=>burst(canvas.width*0.75,canvas.height*0.30),1000);
-
-setTimeout(()=>burst(canvas.width*0.50,canvas.height*0.20),1500);
-
-animate();
-
+    animate();
 }
