@@ -68,8 +68,9 @@ startBtn.onclick = function () {
 
     intro.scrollIntoView({
         behavior: "smooth"
-        startFireworks();
+        ;
     });
+startFireworks()
 };
 
 // Hearts
