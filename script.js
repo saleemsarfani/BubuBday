@@ -13,16 +13,17 @@ window.addEventListener("load", () => {
 
 const startBtn = document.getElementById("startBtn");
 
-startBtn.addEventListener("click", () => {
+if (startBtn) {
+    startBtn.addEventListener("click", () => {
 
-    document.getElementById("bgMusic").play();
+        document.getElementById("bgMusic").play().catch(() => {});
 
-    document.querySelector(".intro").scrollIntoView({
-        behavior: "smooth"
+        document.querySelector(".intro").scrollIntoView({
+            behavior: "smooth"
+        });
+
     });
-
-});
-
+}
 // ===== Reveal Animation =====
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
