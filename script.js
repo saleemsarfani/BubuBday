@@ -149,85 +149,6 @@ lightbox.style.display="none";
 
 
 
-function startFireworks() {
-
-    const canvas = document.getElementById("fireworks");
-    const ctx = canvas.getContext("2d");
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    let particles = [];
-    let running = true;
-
-    function burst(x, y) {
-
-        const colors = [
-    "#FFFFFF",   // White
-    "#F8E9A1",   // Champagne
-    "#FFD700",   // Gold
-    "#FFE4B5",   // Warm gold
-    "#FFF8DC"    // Soft ivory
-        ];
-
-        const color = colors[Math.floor(Math.random() * colors.length)];
-
-        for (let i = 0; i < 80; i++) {
-
-            const angle = Math.random() * Math.PI * 2;
-            const speed = Math.random() * 8 + 3;
-
-            particles.push({
-
-                x,
-                y,
-
-                vx: Math.cos(angle) * speed,
-                vy: Math.sin(angle) * speed,
-
-                size: Math.random() * 2 + 1,
-
-                life: 40,
-
-                color
-
-            });
-
-        }
-
-    }
-
-    function animate() {
-
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-ctx.globalCompositeOperation = "lighter";
-
-        particles.forEach(p=>{
-
-            if(p.life<=0) return;
-
-            ctx.beginPath();
-            ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
-            ctx.fillStyle=p.color;
-            ctx.shadowBlur=6;
-            ctx.shadowColor=p.color;
-            ctx.fill();
-
-            p.x+=p.vx;
-            p.y+=p.vy;
-
-            p.vy+=0.05;
-
-            p.life--;
-        });
-
-        particles=particles.filter(p=>p.life>0);
-
-        if(running || particles.length){
-            requestAnimationFrame(animate);
-        }else{
-            ctx.clearRect(0,0,canvas.width,canvas.height);
-        }
 
     }
 
@@ -251,4 +172,87 @@ ctx.globalCompositeOperation = "lighter";
 
     },500);
 
+}
+function startFireworks() {
+
+    const canvas = document.getElementById("fireworks");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particles = [];
+
+    // Rocket
+    let rocket = {
+        x: canvas.width / 2,
+        y: canvas.height,
+        targetY: canvas.height * 0.28,
+        speed: 8
+    };
+
+    function explode() {
+
+        const colors = ["#FFD700", "#FFF8DC", "#FFFFFF"];
+
+        for (let i = 0; i < 60; i++) {
+
+            const angle = Math.random() * Math.PI * 2;
+            const speed = Math.random() * 4 + 2;
+
+            particles.push({
+                x: rocket.x,
+                y: rocket.y,
+                vx: Math.cos(angle) * speed,
+                vy: Math.sin(angle) * speed,
+                life: 60,
+                size: Math.random() * 2 + 1,
+                color: colors[Math.floor(Math.random() * colors.length)]
+            });
+        }
+    }
+
+    function animate() {
+
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+
+        if (rocket) {
+
+            ctx.beginPath();
+            ctx.arc(rocket.x, rocket.y, 3, 0, Math.PI * 2);
+            ctx.fillStyle = "#FFD700";
+            ctx.fill();
+
+            rocket.y -= rocket.speed;
+
+            if (rocket.y <= rocket.targetY) {
+                explode();
+                rocket = null;
+            }
+        }
+
+        particles.forEach(p => {
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fillStyle = p.color;
+            ctx.fill();
+
+            p.x += p.vx;
+            p.y += p.vy;
+
+            p.vy += 0.03;
+            p.life--;
+        });
+
+        particles = particles.filter(p => p.life > 0);
+
+        if (rocket || particles.length) {
+            requestAnimationFrame(animate);
+        } else {
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+        }
+    }
+
+    animate();
 }
