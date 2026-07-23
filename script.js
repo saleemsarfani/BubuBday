@@ -63,7 +63,7 @@ startBtn.onclick = function () {
     ending.style.display = "block";
 
     
-startFireworks();
+//startFireworks();
 
 setTimeout(() => {
 
