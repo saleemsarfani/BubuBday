@@ -98,3 +98,26 @@ display
     transform:scale(1.08);
     box-shadow:0 15px 35px rgba(255,64,129,.5);
 }
+
+    .reveal{
+    opacity:0;
+    transform:translateY(50px);
+    transition:1s;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+h1{
+    font-size:60px;
+}
+
+h2{
+    font-size:36px;
+}
+
+p{
+    line-height:1.8;
+}
