@@ -131,3 +131,11 @@ function closeImage(){
 lightbox.style.display="none";
 
 }
+
+
+
+document.getElementById("startBtn").addEventListener("click", () => {
+    document.querySelector(".intro").scrollIntoView({
+        behavior: "smooth"
+    });
+});
