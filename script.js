@@ -56,25 +56,17 @@ Dudu ❤️`;
 let i = 0;
 
 function typeWriter() {
-
-  const typing = document.getElementById("typing");
-
-  if (!typing) return;
-
-  if (i < message.length) {
-
-    typing.innerHTML +=
-      message.charAt(i) === "\n"
-        ? "<br>"
-        : message.charAt(i);
-
-    i++;
-
-    setTimeout(typeWriter, 45);
-
-  }
-
+    if (i < message.length) {
+        document.getElementById("loveLetter").innerHTML +=
+            message.charAt(i) === "\n" ? "<br>" : message.charAt(i);
+        i++;
+        setTimeout(typeWriter, 45);
+    }
 }
+
+typeWriter();
+
+
 
 setTimeout(typeWriter, 3500);
 const countdown = document.getElementById("countdown");
