@@ -10,15 +10,19 @@ window.addEventListener("load", () => {
 });
 
 // ===== Smooth Scroll =====
-const startBtn = document.getElementById("startBtn");
 
-if (startBtn) {
-  startBtn.addEventListener("click", () => {
+document.getElementById("startBtn").addEventListener("click", () => {
+
+    const music = document.getElementById("bgMusic");
+
+    music.play().catch(err => console.log(err));
+
     document.querySelector(".intro").scrollIntoView({
-      behavior: "smooth"
+        behavior: "smooth"
     });
-  });
-}
+
+});
+
 
 // ===== Reveal Animation =====
 const observer = new IntersectionObserver(entries => {
@@ -124,17 +128,6 @@ lightbox.style.display="none";
 
 }
 
-document.getElementById("startBtn").addEventListener("click", () => {
-
-    const music = document.getElementById("bgMusic");
-
-    music.play().catch(err => console.log(err));
-
-    document.querySelector(".intro").scrollIntoView({
-        behavior: "smooth"
-    });
-
-});
 
 const photos=[
 "1.jpg.jpeg",
