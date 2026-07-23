@@ -1,11 +1,11 @@
-// Loading
+// ===== LOADER =====
 window.addEventListener("load", () => {
     setTimeout(() => {
         document.getElementById("loader").style.display = "none";
     }, 2000);
 });
 
-// Elements
+// ===== ELEMENTS =====
 const startBtn = document.getElementById("startBtn");
 const intro = document.querySelector(".intro");
 const slideshow = document.querySelector(".slideshow");
@@ -13,15 +13,14 @@ const gallery = document.querySelector(".gallery");
 const video = document.querySelector(".video-section");
 const ending = document.getElementById("ending");
 const music = document.getElementById("bgMusic");
+const loveLetter = document.getElementById("loveLetter");
 
-// Hide everything initially
-intro.style.display = "none";
-slideshow.style.display = "none";
-gallery.style.display = "none";
-video.style.display = "none";
-ending.style.display = "none";
+// Hide sections
+[intro, slideshow, gallery, video, ending].forEach(el => {
+    if (el) el.style.display = "none";
+});
 
-// Letter
+// ===== TYPEWRITER =====
 const message = `Happy Birthday, My Beautiful Bubu ❤️
 
 Every day with you feels special.
@@ -34,67 +33,69 @@ I hope this birthday is as beautiful as you are.
 
 I promise to keep making memories with you.
 
-Happy Birthday.
+Happy Birthday ❤️
 
 Forever Yours,
 
 Dudu ❤️`;
 
-let i = 0;
+let index = 0;
 
 function typeWriter() {
-    if (i < message.length) {
-        document.getElementById("loveLetter").innerHTML +=
-            message.charAt(i) === "\n" ? "<br>" : message.charAt(i);
+    if (index >= message.length) return;
 
-        i++;
-        setTimeout(typeWriter, 40);
-    }
+    loveLetter.innerHTML +=
+        message[index] === "\n" ? "<br>" : message[index];
+
+    index++;
+
+    setTimeout(typeWriter, 40);
 }
 
-startBtn.onclick = function () {
+// ===== BUTTON =====
+startBtn.onclick = () => {
 
-    music.play().catch(()=>{});
-    
+    music.play().catch(() => {});
+
     slideshow.style.display = "flex";
     intro.style.display = "block";
     gallery.style.display = "block";
     video.style.display = "block";
     ending.style.display = "block";
 
-    
-//startFireworks();
-
-setTimeout(() => {
-
     intro.scrollIntoView({
         behavior: "smooth"
     });
 
-    document.getElementById("loveLetter").innerHTML = "";
-    i = 0;
-    typeWriter();
+    loveLetter.innerHTML = "";
+    index = 0;
 
-}, 2500);
-
+    setTimeout(typeWriter,600);
 };
 
-// Hearts
+// ===== HEARTS =====
 function createHeart(){
+
     const heart=document.createElement("div");
+
     heart.className="heart";
+
     heart.innerHTML="❤️";
+
     heart.style.left=Math.random()*window.innerWidth+"px";
+
     heart.style.top=window.innerHeight+"px";
+
     heart.style.fontSize=(18+Math.random()*20)+"px";
+
     document.body.appendChild(heart);
 
-    setTimeout(()=>heart.remove(),8000);
+    setTimeout(()=>heart.remove(),7000);
 }
 
-setInterval(createHeart,350);
+setInterval(createHeart,400);
 
-// Slideshow
+// ===== SLIDESHOW =====
 const photos=[
 "1.jpg.jpeg",
 "2.jpg.jpeg",
@@ -105,75 +106,40 @@ const photos=[
 "7.jpg.jpeg"
 ];
 
-let current=0;
 const slide=document.getElementById("slide");
 
+if(slide){
+
+let current=0;
+
 setInterval(()=>{
-    current=(current+1)%photos.length;
-    slide.src=photos[current];
+
+current=(current+1)%photos.length;
+
+slide.src=photos[current];
+
 },4000);
 
-// Lightbox
+}
+
+// ===== LIGHTBOX =====
 const lightbox=document.getElementById("lightbox");
 const lightboxImg=document.getElementById("lightbox-img");
 
 document.querySelectorAll(".gallery-grid img").forEach(img=>{
-    img.onclick=()=>{
-        lightbox.style.display="flex";
-        lightboxImg.src=img.src;
-    };
+
+img.onclick=()=>{
+
+lightbox.style.display="flex";
+
+lightboxImg.src=img.src;
+
+};
+
 });
 
 function closeImage(){
-    lightbox.style.display="none";
-}
 
-function startFireworks() {
+lightbox.style.display="none";
 
-    const canvas = document.getElementById("fireworks");
-    if (!canvas) return;
-
-    const ctx = canvas.getContext("2d");
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    let particles = [];
-
-    for (let i = 0; i < 150; i++) {
-        particles.push({
-            x: canvas.width / 2,
-            y: canvas.height / 2,
-            dx: (Math.random() - 0.5) * 12,
-            dy: (Math.random() - 0.5) * 12,
-            life: 100,
-            color: `hsl(${Math.random() * 360},100%,60%)`
-        });
-    }
-
-    function animate() {
-
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        particles.forEach((p) => {
-
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
-            ctx.fillStyle = p.color;
-            ctx.fill();
-
-            p.x += p.dx;
-            p.y += p.dy;
-            p.dy += 0.03;
-            p.life--;
-        });
-
-        particles = particles.filter(p => p.life > 0);
-
-        if (particles.length > 0) {
-            requestAnimationFrame(animate);
-        }
-    }
-
-    animate();
 }
