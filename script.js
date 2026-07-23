@@ -163,13 +163,11 @@ function startFireworks() {
     function burst(x, y) {
 
         const colors = [
-            "#ff3b3b",
-            "#ffd93d",
-            "#4dff88",
-            "#4da6ff",
-            "#ff66ff",
-            "#ffffff",
-            "#ff8c42"
+    "#FFFFFF",   // White
+    "#F8E9A1",   // Champagne
+    "#FFD700",   // Gold
+    "#FFE4B5",   // Warm gold
+    "#FFF8DC"    // Soft ivory
         ];
 
         const color = colors[Math.floor(Math.random() * colors.length)];
@@ -187,7 +185,7 @@ function startFireworks() {
                 vx: Math.cos(angle) * speed,
                 vy: Math.sin(angle) * speed,
 
-                size: Math.random() * 3 + 2,
+                size: Math.random() * 2 + 1,
 
                 life: 120,
 
@@ -211,7 +209,7 @@ ctx.globalCompositeOperation = "lighter";
             ctx.beginPath();
             ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
             ctx.fillStyle=p.color;
-            ctx.shadowBlur=15;
+            ctx.shadowBlur=6;
             ctx.shadowColor=p.color;
             ctx.fill();
 
