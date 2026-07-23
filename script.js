@@ -77,3 +77,10 @@ function typeWriter() {
 }
 
 setTimeout(typeWriter, 3500);
+const countdown = document.getElementById("countdown");
+
+function updateCountdown() {
+    countdown.innerHTML = "Today is your special day ❤️";
+}
+
+updateCountdown();
