@@ -68,6 +68,7 @@ startBtn.onclick = function () {
 
     intro.scrollIntoView({
         behavior: "smooth"
+        startFireworks();
     });
 };
 
@@ -118,4 +119,46 @@ document.querySelectorAll(".gallery-grid img").forEach(img=>{
 
 function closeImage(){
     lightbox.style.display="none";
+}
+
+function startFireworks(){
+const canvas=document.getElementById("fireworks");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
+
+for(let i=0;i<150;i++){
+particles.push({
+x:canvas.width/2,
+y:canvas.height/2,
+dx:(Math.random()-0.5)*10,
+dy:(Math.random()-0.5)*10,
+life:100
+});
+}
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p.x,p.y,3,0,Math.PI*2);
+ctx.fillStyle=`hsl(${Math.random()*360},100%,60%)`;
+ctx.fill();
+p.x+=p.dx;
+p.y+=p.dy;
+p.life--;
+});
+
+particles=particles.filter(p=>p.life>0);
+
+if(particles.length>0){
+requestAnimationFrame(animate);
+}
+}
+
+animate();
 }
