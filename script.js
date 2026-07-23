@@ -155,15 +155,16 @@ function startFireworks() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const particles = [];
+    let particles = [];
 
-    for (let i = 0; i < 200; i++) {
+    for (let i = 0; i < 250; i++) {
         particles.push({
             x: canvas.width / 2,
             y: canvas.height / 2,
-            vx: (Math.random() - 0.5) * 12,
-            vy: (Math.random() - 0.5) * 12,
-            life: 100,
+            vx: (Math.random() - 0.5) * 15,
+            vy: (Math.random() - 0.5) * 15,
+            size: Math.random() * 5 + 3,
+            life: 120,
             color: `hsl(${Math.random() * 360},100%,60%)`
         });
     }
@@ -172,26 +173,24 @@ function startFireworks() {
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        for (const p of particles) {
+        particles.forEach(p => {
 
-            if (p.life <= 0) continue;
+            if (p.life <= 0) return;
 
-            ctx.fillStyle = p.color;
             ctx.beginPath();
-            ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fillStyle = p.color;
             ctx.fill();
 
             p.x += p.vx;
             p.y += p.vy;
 
-            p.vy += 0.05;
+            p.vy += 0.08;
             p.life--;
-        }
+        });
 
         if (particles.some(p => p.life > 0)) {
             requestAnimationFrame(animate);
-        } else {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
         }
     }
 
