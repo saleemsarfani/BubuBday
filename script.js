@@ -11,23 +11,26 @@ window.addEventListener("load", () => {
 
 // ===== Smooth Scroll =====
 
-const startBtn = document.getElementById("startBtn");
+startBtn.addEventListener("click", () => {
 
-if (startBtn) {
-    startBtn.addEventListener("click", () => {
+    document.getElementById("bgMusic").play().catch(() => {});
 
-        document.getElementById("bgMusic").play().catch(() => {});
+    document.querySelector(".slideshow").style.display = "flex";
+    document.querySelector(".intro").style.display = "block";
+    document.querySelector(".video-section").style.display = "block";
 
-        document.querySelector(".intro").scrollIntoView({
-            behavior: "smooth"
-        });
+    const ending = document.getElementById("ending");
+    if (ending) ending.style.display = "flex";
 
-      document.getElementById("loveLetter").innerHTML = "";
-i = 0;
-typeWriter();
-
+    document.querySelector(".slideshow").scrollIntoView({
+        behavior: "smooth"
     });
-}
+
+    document.getElementById("loveLetter").innerHTML = "";
+    i = 0;
+    typeWriter();
+});
+
 // ===== Reveal Animation =====
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
