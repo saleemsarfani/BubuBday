@@ -150,16 +150,26 @@ const photos=[
 "3.jpg.jpeg",
 "4.jpg.jpeg",
 "5.jpg.jpeg",
-"6.jpg.png",
+"6.jpg.jpeg",
 "7.jpg.jpeg"
 ];
 
 let current=0;
+const slide=document.getElementById("slide");
 
 setInterval(()=>{
 
-current=(current+1)%photos.length;
+    slide.classList.add("fade");
 
-document.getElementById("slide").src=photos[current];
+    setTimeout(()=>{
 
+        current=(current+1)%photos.length;
+
+        slide.src=photos[current];
+
+        slide.classList.remove("fade");
+
+    },1000);
+
+},5000);
 },5000);
