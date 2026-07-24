@@ -127,7 +127,7 @@ There's one last thing I want to show you...
 A collection of my favorite memories with my favorite person.
 </p>
 
-<button onclick="window.location.href='ourstory_deluxe.html'">
+<button onclick="openStory()">
 📖 Open Our Story ❤️
 </button>
 
@@ -149,6 +149,15 @@ return;
 document.getElementById("locked").style.display="none";
 document.getElementById("treasure").style.display="block";
 }
+
+  function openStory() {
+    const music = new Audio("song.mp3");
+    music.play();
+
+    setTimeout(() => {
+        window.location.href = "ourstory_deluxe.html";
+    }, 300);
+  }
 function nextClue(){
 document.getElementById("clue1").style.display="none";
 document.getElementById("clue2").style.display="block";
