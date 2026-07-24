@@ -99,8 +99,10 @@ setInterval(createHeart,400);
 
 // ===== SLIDESHOW =====
 const photos=[
+    
 "1.jpg.jpeg",
 "2.jpg.jpeg",
+    "17.jpeg",
 "3.jpg.jpeg",
 "4.jpg.jpeg",
 "5.jpg.jpeg",
