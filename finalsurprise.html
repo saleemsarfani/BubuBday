@@ -1,34 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>One More Surprise ❤️</title>
 
 <style>
-
 body{
 margin:0;
-font-family:Arial,sans-serif;
-background:linear-gradient(135deg,#ff758c,#ff7eb3);
+padding:20px;
 display:flex;
 justify-content:center;
 align-items:center;
-height:100vh;
-text-align:center;
+min-height:100vh;
+background:#111827;
+font-family:Arial,sans-serif;
 color:white;
+text-align:center;
 }
 
 .card{
-background:rgba(255,255,255,.15);
-backdrop-filter:blur(10px);
+width:90%;
+max-width:550px;
 padding:30px;
 border-radius:20px;
-width:90%;
-max-width:520px;
+background:rgba(255,255,255,.08);
+box-shadow:0 10px 30px rgba(0,0,0,.3);
 }
 
 button{
@@ -36,11 +33,14 @@ margin-top:20px;
 padding:15px 30px;
 border:none;
 border-radius:30px;
-background:#fff;
-color:#ff4d6d;
+background:#ff4d6d;
+color:white;
 font-size:18px;
-font-weight:bold;
 cursor:pointer;
+}
+
+button:hover{
+opacity:.9;
 }
 
 #treasure{
@@ -49,48 +49,131 @@ margin-top:25px;
 line-height:1.8;
 }
 
+#clue2{
+display:none;
+}
 </style>
-
 </head>
 
 <body>
 
 <div class="card">
 
+<div id="locked">
+
 <h1>⏰ One More Surprise ❤️</h1>
 
 <p>
-
-If it's before <b>2:30 PM</b> today...
-
-STOP! 😏❤️
-
-Come back exactly at <b>2:30 PM</b>.
-
+The birthday isn't over yet... 😏❤️
+<br><br>
+If it's before <b>2:30 PM today</b>,
+please don't open this yet.
+<br><br>
 I promise it'll be worth the wait. 🥹❤️
-
 </p>
 
 <button onclick="showClue()">
 🔒 Open at 2:30 PM ❤️
 </button>
 
+</div>
+
 <div id="treasure">
 
 <h2>🕵️ Birthday Treasure Hunt ❤️</h2>
 
 <p>
-
 You thought the surprises were over? 😏❤️
-
+<br><br>
 Not even close...
-
+<br><br>
 I've hidden <b>TWO</b> final surprises inside the house.
-
+<br><br>
 Let's see if you can find them! ❤️
-
 </p>
 
 <div id="clue1">
 
-<h3>🔍 Clue #
+<h3>🔍 Clue #1</h3>
+
+<p>
+The place where your sweetest dreams begin... 🥹❤️
+<br><br>
+Look beneath the pillow...
+<br><br>
+Someone who loves you has left something waiting there.
+</p>
+
+<button onclick="nextClue()">
+❤️ I Found It!
+</button>
+
+</div>
+
+<div id="clue2">
+
+<h3>🎉 Amazing!</h3>
+
+<p>
+I knew you'd find it! 😘❤️
+<br><br>
+Now for your final surprise...
+</p>
+
+<h3>🔍 Clue #2</h3>
+
+<p>
+Head to the heart of the home... 🍳❤️
+<br><br>
+Open one of the kitchen drawers...
+<br><br>
+Your final birthday surprise is waiting there. 🎁
+</p>
+
+<p>
+Happy Birthday, My Beautiful Bubu ❤️
+<br><br>
+Love Always,
+<br>
+<b>Dudu ❤️</b>
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function showClue(){
+
+const now = new Date();
+
+const unlock = new Date();
+unlock.setHours(14,30,0,0);
+
+if(now < unlock){
+
+alert("❤️ Not yet, Birthday Girl!\n\nCome back exactly at 2:30 PM today.\n\nI promise it'll be worth the wait. 🥹❤️");
+
+return;
+
+}
+
+document.getElementById("locked").style.display="none";
+document.getElementById("treasure").style.display="block";
+
+}
+
+function nextClue(){
+
+document.getElementById("clue1").style.display="none";
+document.getElementById("clue2").style.display="block";
+
+}
+
+</script>
+
+</body>
+</html>
