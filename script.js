@@ -1,5 +1,4 @@
 
-alert("SCRIPT VERSION 2026-07-2pppp4");
 // ===== LOADER =====
 window.addEventListener("load", () => {
     setTimeout(() => {
