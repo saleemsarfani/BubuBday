@@ -106,7 +106,7 @@ const photos=[
 "4.jpg.jpeg",
 "5.jpg.jpeg",
 "6.jpg.png",
-"7.jpg.jpeg"
+"7.jpg.jpeg",
 "7.jpeg",
     "8.jpeg",
     "9.jpeg",
@@ -161,29 +161,7 @@ lightbox.style.display="none";
 
 
 
-    }
 
-    animate();
-
-    let count=0;
-
-    const interval=setInterval(()=>{
-
-        burst(
-            Math.random()*canvas.width,
-            Math.random()*canvas.height*0.45+50
-        );
-
-        count++;
-
-        if(count>=10){
-            clearInterval(interval);
-            running=false;
-        }
-
-    },500);
-
-}
 function startFireworks() {
 
     const canvas = document.getElementById("fireworks");
