@@ -1,1 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One More Surprise ❤️</title>
 
+<style>
+body{
+margin:0;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:#111827;
+font-family:Arial;
+color:white;
+text-align:center;
+}
+
+.card{
+width:90%;
+max-width:500px;
+padding:30px;
+border-radius:20px;
+background:rgba(255,255,255,.08);
+}
+
+button{
+margin-top:20px;
+padding:15px 30px;
+border:none;
+border-radius:30px;
+background:#ff4d6d;
+color:white;
+font-size:18px;
+cursor:pointer;
+}
+
+#clue{
+display:none;
+margin-top:25px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>🕵️ Birthday Mission ❤️</h1>
+
+<p>
+If it's before <b>2:30 PM</b>...
+
+STOP! 😏❤️
+
+Come back at exactly <b>2:30 PM</b>.
+</p>
+
+<button onclick="showClue()">
+🗝️ I'm Opening At 2:30 PM
+</button>
+
+<div id="clue">
+
+<h2>🎁 Final Surprise</h2>
+
+<p>
+
+You thought the website was the final gift?
+
+Nope... ❤️
+
+I've hidden one more surprise inside the house.
+
+YOUR CLUE GOES HERE.
+
+Happy Hunting 😘❤️
+
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+function showClue(){
+
+document.querySelector("button").style.display="none";
+
+document.getElementById("clue").style.display="block";
+
+}
+
+</script>
+
+</body>
+</html>
