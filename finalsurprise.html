@@ -63,39 +63,90 @@ Come back at exactly <b>2:30 PM</b>.
 🗝️ I'm Opening At 2:30 PM
 </button>
 
-<div id="clue">
 
-<h2>🎁 Final Surprise</h2>
+<h2>🕵️ Birthday Treasure Hunt ❤️</h2>
 
 <p>
 
-You thought the website was the final gift?
+You thought the surprises were over? 😏❤️
 
-Nope... ❤️
+Not even close...
 
-I've hidden one more surprise inside the house.
+I've hidden TWO final surprises inside the house.
 
-YOUR CLUE GOES HERE.
+Let's see if you can find them!
 
-Happy Hunting 😘❤️
+</p>
+
+<div id="clue1">
+
+<h3>🔍 Clue #1</h3>
+
+<p>
+
+The place where your sweetest dreams begin... 🥹❤️
+
+Lift the pillow...
+
+Someone who loves you left something waiting there.
+
+</p>
+
+<button onclick="nextClue()">
+❤️ I Found It!
+</button>
+
+</div>
+
+<div id="clue2" style="display:none;">
+
+<h3>🎉 Amazing!</h3>
+
+<p>
+
+I knew you'd find it. 😘❤️
+
+But the hunt isn't over yet...
+
+</p>
+
+<h3>🔍 Clue #2</h3>
+
+<p>
+
+Now head to the heart of the home...
+
+The place where delicious memories are made. 🍳❤️
+
+Open one of the kitchen drawers...
+
+Your final birthday surprise is waiting there. 🎁
+
+</p>
+
+<p>
+
+Happy Hunting, Birthday Girl! ❤️
+
+Love,
+
+<b>Dudu ❤️</b>
 
 </p>
 
 </div>
 
-</div>
-
 <script>
 
-function showClue(){
+function nextClue(){
 
-document.querySelector("button").style.display="none";
+document.getElementById("clue1").style.display="none";
 
-document.getElementById("clue").style.display="block";
+document.getElementById("clue2").style.display="block";
 
 }
 
 </script>
-
+  
 </body>
 </html>
