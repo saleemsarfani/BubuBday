@@ -1,29 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>One More Surprise ❤️</title>
 
 <style>
+
 body{
 margin:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
 display:flex;
 justify-content:center;
 align-items:center;
 height:100vh;
-background:#111827;
-font-family:Arial;
-color:white;
 text-align:center;
+color:white;
 }
 
 .card{
-width:90%;
-max-width:500px;
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(10px);
 padding:30px;
 border-radius:20px;
-background:rgba(255,255,255,.08);
+width:90%;
+max-width:520px;
 }
 
 button{
@@ -31,16 +36,19 @@ margin-top:20px;
 padding:15px 30px;
 border:none;
 border-radius:30px;
-background:#ff4d6d;
-color:white;
+background:#fff;
+color:#ff4d6d;
 font-size:18px;
+font-weight:bold;
 cursor:pointer;
 }
 
-#clue{
+#treasure{
 display:none;
 margin-top:25px;
+line-height:1.8;
 }
+
 </style>
 
 </head>
@@ -49,20 +57,25 @@ margin-top:25px;
 
 <div class="card">
 
-<h1>🕵️ Birthday Mission ❤️</h1>
+<h1>⏰ One More Surprise ❤️</h1>
 
 <p>
-If it's before <b>2:30 PM</b>...
+
+If it's before <b>2:30 PM</b> today...
 
 STOP! 😏❤️
 
-Come back at exactly <b>2:30 PM</b>.
+Come back exactly at <b>2:30 PM</b>.
+
+I promise it'll be worth the wait. 🥹❤️
+
 </p>
 
 <button onclick="showClue()">
-🗝️ I'm Opening At 2:30 PM
+🔒 Open at 2:30 PM ❤️
 </button>
 
+<div id="treasure">
 
 <h2>🕵️ Birthday Treasure Hunt ❤️</h2>
 
@@ -72,81 +85,12 @@ You thought the surprises were over? 😏❤️
 
 Not even close...
 
-I've hidden TWO final surprises inside the house.
+I've hidden <b>TWO</b> final surprises inside the house.
 
-Let's see if you can find them!
+Let's see if you can find them! ❤️
 
 </p>
 
 <div id="clue1">
 
-<h3>🔍 Clue #1</h3>
-
-<p>
-
-The place where your sweetest dreams begin... 🥹❤️
-
-Lift the pillow...
-
-Someone who loves you left something waiting there.
-
-</p>
-
-<button onclick="nextClue()">
-❤️ I Found It!
-</button>
-
-</div>
-
-<div id="clue2" style="display:none;">
-
-<h3>🎉 Amazing!</h3>
-
-<p>
-
-I knew you'd find it. 😘❤️
-
-But the hunt isn't over yet...
-
-</p>
-
-<h3>🔍 Clue #2</h3>
-
-<p>
-
-Now head to the heart of the home...
-
-The place where delicious memories are made. 🍳❤️
-
-Open one of the kitchen drawers...
-
-Your final birthday surprise is waiting there. 🎁
-
-</p>
-
-<p>
-
-Happy Hunting, Birthday Girl! ❤️
-
-Love,
-
-<b>Dudu ❤️</b>
-
-</p>
-
-</div>
-
-<script>
-
-function nextClue(){
-
-document.getElementById("clue1").style.display="none";
-
-document.getElementById("clue2").style.display="block";
-
-}
-
-</script>
-  
-</body>
-</html>
+<h3>🔍 Clue #
