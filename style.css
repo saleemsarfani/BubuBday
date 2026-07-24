@@ -206,3 +206,17 @@ cursor:pointer;
     pointer-events: none;
     z-index: 9999;
 }
+
+.video-section video{
+    width:100%;
+    max-width:380px;
+    border-radius:20px;
+    margin:20px 0;
+}
+
+.video-caption{
+    font-size:18px;
+    line-height:1.8;
+    color:#fff;
+    text-align:center;
+}
