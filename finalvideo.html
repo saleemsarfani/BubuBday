@@ -106,6 +106,8 @@ I love you so much.
 
 <h2>✨ This isn't the end... ✨</h2>
 <p>It's just the beginning of many more birthdays together. ❤️</p>
+<div id="countdown" style="display:none;margin-top:30px;font-size:26px;font-weight:bold;">
+Next surprise in <span id="secs">10</span>...
 </div>
 </div>
 
@@ -153,13 +155,22 @@ function playVideo(){
    document.getElementById("end").style.display="block";
    window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
 
-   setTimeout(()=>{
-      document.getElementById("fadeScreen").classList.add("show");
-   },9000);
-
-   setTimeout(()=>{
-      document.body.innerHTML='<div style="height:100vh;background:#000;color:#fff;display:flex;justify-content:center;align-items:center;font-family:Arial;text-align:center;padding:20px;font-size:32px;line-height:1.8;">❤️ Happy Birthday, Bubu ❤️<br><br>Forever Yours...<br><b>Dudu ❤️</b></div>';
-   },13000);
+   const cd=document.getElementById("countdown");
+   const sec=document.getElementById("secs");
+   cd.style.display="block";
+   let left=10;
+   sec.textContent=left;
+   const timer=setInterval(()=>{
+      left--;
+      sec.textContent=left;
+      if(left<=0){
+         clearInterval(timer);
+         document.getElementById("fadeScreen").classList.add("show");
+         setTimeout(()=>{
+            document.body.innerHTML='<div style="height:100vh;background:#000;color:#fff;display:flex;justify-content:center;align-items:center;font-family:Arial;text-align:center;padding:20px;font-size:32px;line-height:1.8;">❤️ Happy Birthday, Bubu ❤️<br><br>Forever Yours...<br><b>Dudu ❤️</b></div>';
+         },4000);
+      }
+   },1000);
  }
 }
 </script>
