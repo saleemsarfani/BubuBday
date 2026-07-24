@@ -107,6 +107,17 @@ const photos=[
 "5.jpg.jpeg",
 "6.jpg.png",
 "7.jpg.jpeg"
+"7.jpeg",
+    "8.jpeg",
+    "9.jpeg",
+    "10.jpeg",
+    "11.jpeg",
+    "12.jpeg",
+    "13.jpeg",
+    "14.jpeg",
+    "15.jpeg",
+    "16.jpeg"
+
 ];
 
 const slide=document.getElementById("slide");
